@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+        <AssemblyName>Panosen.Toolkit</AssemblyName>
+        <RootNamespace>Panosen.Toolkit</RootNamespace>
+        <Version>1.6.0</Version>
+        <Authors>harriszhang@live.cn</Authors>
+        <Company>harriszhang@live.cn</Company>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <DocumentationFile>bin\$(Configuration)\Panosen.Toolkit.xml</DocumentationFile>
+        <PackageIcon>panosen.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/panosen/panosen-toolkit</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\panosen.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+
+</Project>

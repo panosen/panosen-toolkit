@@ -16,7 +16,7 @@ namespace Panosen.Toolkit
         /// <exception cref="System.ArgumentNullException">content为null或空</exception>
         public static string MD5(string value)
         {
-            return MD5(bytes, Encoding.UTF8);
+            return MD5(value, Encoding.UTF8);
         }
         
         /// <summary>

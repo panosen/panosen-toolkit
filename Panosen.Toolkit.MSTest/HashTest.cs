@@ -6,7 +6,7 @@ namespace Panosen.Toolkit.MSTest
     [TestClass]
     public class HashTest
     {
-        private const string input = "this is a test ÕÅÈý";
+        private const string input = "this is a test.";
 
         static HashTest()
         {
@@ -20,7 +20,7 @@ namespace Panosen.Toolkit.MSTest
         {
             string actual = Hash.MD5(input);
 
-            string expected = "44A53A7E04B8836DF5CE498962F1B8CC";
+            string expected = "09CBA091DF696AF91549DE27B8E7D0F6";
 
             Assert.AreEqual(expected, actual);
         }
@@ -30,7 +30,7 @@ namespace Panosen.Toolkit.MSTest
         {
             string actual = Hash.MD5(input, Encoding.ASCII);
 
-            string expected = "600F887F1F24E4895B23CD0F1409D18D";
+            string expected = "09CBA091DF696AF91549DE27B8E7D0F6";
 
             Assert.AreEqual(expected, actual);
         }
@@ -40,7 +40,7 @@ namespace Panosen.Toolkit.MSTest
         {
             string actual = Hash.MD5(input, Encoding.GetEncoding("GB2312"));
 
-            string expected = "2C1D6A643BD36BBBB21792295B5D34BB";
+            string expected = "09CBA091DF696AF91549DE27B8E7D0F6";
 
             Assert.AreEqual(expected, actual);
         }
@@ -50,7 +50,7 @@ namespace Panosen.Toolkit.MSTest
         {
             string actual = Hash.SHA1(input);
 
-            string expected = "0B9EE479E853AADD6FF660A7D347AE977874F692";
+            string expected = "7728F8EB7BF75EC3CC49364861EEC852FC814870";
 
             Assert.AreEqual(expected, actual);
         }
@@ -60,7 +60,7 @@ namespace Panosen.Toolkit.MSTest
         {
             string actual = Hash.SHA1(input, Encoding.ASCII);
 
-            string expected = "39BE21C7350F4EAEA9C94D0DC688CB65028D8910";
+            string expected = "7728F8EB7BF75EC3CC49364861EEC852FC814870";
 
             Assert.AreEqual(expected, actual);
         }
@@ -70,7 +70,7 @@ namespace Panosen.Toolkit.MSTest
         {
             string actual = Hash.SHA1(input, Encoding.GetEncoding("GB2312"));
 
-            string expected = "A7DBF145E5ACF69F212F36FC17A32724C58DF7E2";
+            string expected = "7728F8EB7BF75EC3CC49364861EEC852FC814870";
 
             Assert.AreEqual(expected, actual);
         }

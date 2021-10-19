@@ -14,14 +14,26 @@ namespace Panosen.Toolkit
         /// <param name="encoding">编码</param>
         /// <returns>加密后的结果</returns>
         /// <exception cref="System.ArgumentNullException">content为null或空</exception>
-        public static string MD5(string value, Encoding encoding = default)
+        public static string MD5(string value)
+        {
+            return MD5(bytes, Encoding.UTF8);
+        }
+        
+        /// <summary>
+        /// 将指定的字符串进行MD5加密
+        /// </summary>
+        /// <param name="value">要加密的字符串</param>
+        /// <param name="encoding">编码</param>
+        /// <returns>加密后的结果</returns>
+        /// <exception cref="System.ArgumentNullException">content为null或空</exception>
+        public static string MD5(string value, Encoding encoding)
         {
             if (string.IsNullOrEmpty(value))
             {
                 throw new ArgumentNullException(nameof(value));
             }
 
-            var bytes = (encoding ?? Encoding.UTF8).GetBytes(value);
+            var bytes = encoding.GetBytes(value);
 
             return MD5(bytes);
         }

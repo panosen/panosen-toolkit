@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Panosen.Toolkit
 {
+    /// <summary>
+    /// 加解密
+    /// </summary>
     public static class Crypto
     {
         #region DES
@@ -47,7 +50,6 @@ namespace Panosen.Toolkit
         /// <param name="value">待解密的字符串</param>
         /// <param name="rgbIV">密钥向量，长度为8</param>
         /// <param name="rgbKey">密钥，用于加密解密，长度为8</param>
-        /// <param name="encoding">编码</param>
         /// <returns>返回解密内容</returns>
         /// <exception cref="System.ArgumentNullException">content为null或空</exception>
         public static byte[] DESDecode(byte[] value, byte[] rgbIV, byte[] rgbKey)

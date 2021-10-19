@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Panosen.Toolkit
 {
+    /// <summary>
+    /// 哈希
+    /// </summary>
     public static class Hash
     {
         /// <summary>

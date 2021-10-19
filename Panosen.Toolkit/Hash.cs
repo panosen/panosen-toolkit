@@ -45,7 +45,7 @@ namespace Panosen.Toolkit
                 throw new ArgumentNullException(nameof(bytes));
             }
 
-            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
+            var provider =System.Security.Cryptography.MD5.Create();
 
             var hash = provider.ComputeHash(bytes);
 

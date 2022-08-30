@@ -29,7 +29,7 @@ namespace Panosen.Toolkit
             return MD5(bytes);
         }
 
-        private static string MD5(byte[] bytes)
+        public static string MD5(byte[] bytes)
         {
             if (bytes == null || bytes.Length == 0)
             {

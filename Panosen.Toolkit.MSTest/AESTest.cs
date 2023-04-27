@@ -36,6 +36,34 @@ namespace Panosen.Toolkit.MSTest
         }
 
         [TestMethod]
+        public void TestAES2()
+        {
+            using (AesManaged aesProvider = new AesManaged())
+            {
+                aesProvider.GenerateKey();
+
+                var key = aesProvider.Key;
+                var iv = aesProvider.IV;
+
+                var keyiv = new byte[key.Length + iv.Length];
+                Array.Copy(key, 0, keyiv, 0, key.Length);
+                Array.Copy(iv, 0, keyiv, key.Length, iv.Length);
+
+                byte[] plainBytes = ByteProvider.GetBytes(100000);
+
+                var cipherBytes = Crypto.AESEncrypt(plainBytes, keyiv);
+
+                var plainBytes2 = Crypto.AESDecrypt(cipherBytes, keyiv);
+
+                var plainSHA1Expected = Hash.SHA1(plainBytes);
+
+                var plainSHA1Actual = Hash.SHA1(plainBytes2);
+
+                Assert.AreEqual(plainSHA1Expected, plainSHA1Actual);
+            }
+        }
+
+        [TestMethod]
         public void TestAesEncryptCrossPlatform()
         {
             var plainText = "this jdiqidjiweidiowjeiodiowejdwuehduihwuehdueiojdiwjed wued 张三";

@@ -270,6 +270,36 @@ namespace Panosen.Toolkit
             }
         }
 
+        /// <summary>
+        /// 使用AES加密
+        /// </summary>
+        /// <param name="plainBytes"></param>
+        /// <param name="aesKeyIV">aesKey + aesIV</param>
+        /// <returns></returns>
+        public static byte[] AESEncrypt(byte[] plainBytes, byte[] aesKeyIV)
+        {
+            byte[] aesKey = new byte[aesKeyIV.Length - 16];
+            byte[] aesIV = new byte[16];
+            Array.Copy(aesKeyIV, 0, aesKey, 0, aesKey.Length);
+            Array.Copy(aesKeyIV, aesKeyIV.Length - 16, aesIV, 0, aesIV.Length);
+            return AESEncrypt(plainBytes, aesKey, aesIV);
+        }
+
+        /// <summary>
+        /// 使用AES解密
+        /// </summary>
+        /// <param name="cipherBytes"></param>
+        /// <param name="aesKeyIV">aesKey + aesIV</param>
+        /// <returns></returns>
+        public static byte[] AESDecrypt(byte[] cipherBytes, byte[] aesKeyIV)
+        {
+            byte[] aesKey = new byte[aesKeyIV.Length - 16];
+            byte[] aesIV = new byte[16];
+            Array.Copy(aesKeyIV, 0, aesKey, 0, aesKey.Length);
+            Array.Copy(aesKeyIV, aesKeyIV.Length - 16, aesIV, 0, aesIV.Length);
+            return AESDecrypt(cipherBytes, aesKey, aesIV);
+        }
+
         #endregion
 
         #region PBKDF2
@@ -330,7 +360,7 @@ namespace Panosen.Toolkit
             }
 
             return true;
-        } 
+        }
 
         #endregion
     }
